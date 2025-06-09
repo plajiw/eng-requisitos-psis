@@ -32,8 +32,8 @@ Para a validação dos requisitos funcionais e do fluxo de navegação propostos
 
 A especificação de requisitos completa, que fundamenta este projeto, está consolidada nos documentos abaixo. Eles incluem os diagramas de caso de uso, as especificações formais, as histórias de usuário e a matriz de rastreabilidade.
 
-* **Documento 1:** [Especificação de Requisitos – Parte 1](/ESPECIFICA%C3%87%C3%83O%20DE%20REQUISITOS%20PARA%20UM%20SISTEMA%20DE%20PSICOLOGIA%20-%20PARTE%201%20(1).pdf)
-* **Documento 2:** [Especificação de Requisitos – Parte 2](/ESPECIFICA%C3%87%C3%83O%20DE%20REQUISITOS%20PARA%20UM%20SISTEMA%20DE%20PSICOLOGIA%20-%20PARTE%202.pdf)
+* **Documento 1:** [Especificação de Requisitos – Parte 1](/docs/ESPECIFICAÇÃO%20DE%20REQUISITOS%20PARA%20UM%20SISTEMA%20DE%20PSICOLOGIA%20-%20PARTE%201.pdf)
+* **Documento 2:** [Especificação de Requisitos – Parte 2](/docs/ESPECIFICAÇÃO%20DE%20REQUISITOS%20PARA%20UM%20SISTEMA%20DE%20PSICOLOGIA%20-%20PARTE%202.pdf)
 
 ---
 
