@@ -1,34 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PsiSis - Dashboard</title>
+    <title>Dashboard - PsiSis</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="main-header">
-        <h1>PsiSis</h1>
-        <nav>
-            <a href="dashboard.html" class="active">Dashboard</a>
-            <a href="agenda.html">Agenda</a>
-            <a href="prontuario.html">Prontuários</a>
-            <a href="index.html">Sair</a>
-        </nav>
-    </header>
+    <div class="layout-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="bi bi-heart-pulse logo-icon-sidebar"></i>
+                    <h1>PsiSis</h1>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="nav-link active"><i class="bi bi-grid-1x2-fill"></i> <span>Painel</span></a></li>
+                    <li><a href="agenda.html" class="nav-link"><i class="bi bi-calendar-event-fill"></i> <span>Agenda</span></a></li>
+                    <li><a href="pacientes.html" class="nav-link"><i class="bi bi-people-fill"></i> <span>Pacientes</span></a></li>
+                    <li><a href="#" class="nav-link"><i class="bi bi-file-earmark-bar-graph-fill"></i> <span>Relatórios</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-link"><i class="bi bi-box-arrow-left"></i> <span>Sair</span></a>
+            </div>
+        </aside>
 
-    <main class="container">
-        <h2>Bem-vindo(a), Dr(a). Psicólogo(a)!</h2>
-        <p>Este é o seu painel de controle. Utilize o menu acima para navegar pelas funcionalidades do sistema.</p>
-        
-        <div class="card">
-            <h3>Próximas Sessões</h3>
-            <ul>
-                <li>14:00 - Paciente A (Online)</li>
-                <li>15:00 - Paciente B (Presencial)</li>
-                <li>16:00 - Paciente C (Online)</li>
-            </ul>
+        <div class="main-content-wrapper">
+            <header class="top-header">
+                <h2>Painel Principal</h2>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Buscar pacientes...">
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://i.pravatar.cc/40?u=psicologo" alt="Avatar do Usuário" class="user-avatar">
+                        <div class="user-info">
+                            <span class="user-name">Dr. João Silva</span>
+                            <span class="user-role">Psicólogo Clínico</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <section class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: var(--primary-light); color: var(--primary-color);"><i class="bi bi-calendar-check-fill"></i></div>
+                        <div class="stat-info"><h4>Consultas Hoje</h4><p>5</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: var(--secondary-light); color: var(--secondary-color);"><i class="bi bi-people-fill"></i></div>
+                        <div class="stat-info"><h4>Pacientes Ativos</h4><p>67</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #FFFBEB; color: #D97706;"><i class="bi bi-hourglass-split"></i></div>
+                        <div class="stat-info"><h4>Prontuários Pendentes</h4><p>2</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background-color: #EFF6FF; color: #3B82F6;"><i class="bi bi-cash-coin"></i></div>
+                        <div class="stat-info"><h4>Faturamento (Mês)</h4><p>R$ 12.5k</p></div>
+                    </div>
+                </section>
+                
+                <section class="data-table-container" style="margin-top: 2rem;">
+                     <h3 style="padding: 1.5rem 1.5rem 0 1.5rem;">Próximas Consultas do Dia</h3>
+                     <table class="data-table">
+                        <thead>
+                            <tr><th>Horário</th><th>Paciente</th><th>Tipo da Sessão</th><th>Status</th><th>Ações</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>09:00</td><td>Ana Clara Souza</td><td>Sessão de Rotina</td><td>Confirmada</td><td><a href="prontuario.html" class="btn">Ver Prontuário</a></td></tr>
+                            <tr><td>10:30</td><td>Roberto Martins</td><td>Avaliação Inicial</td><td>Pendente</td><td><a href="prontuario.html" class="btn">Ver Prontuário</a></td></tr>
+                            <tr><td>14:00</td><td>Juliana Ferreira</td><td>Terapia Cognitivo-Comportamental</td><td>Confirmada</td><td><a href="prontuario.html" class="btn">Ver Prontuário</a></td></tr>
+                        </tbody>
+                     </table>
+                </section>
+            </main>
         </div>
-    </main>
+    </div>
 </body>
 </html>
