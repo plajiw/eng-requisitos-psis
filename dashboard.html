@@ -4,83 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - PsiSis</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="layout-container">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">
-                    <i class="bi bi-heart-pulse logo-icon-sidebar"></i>
-                    <h1>PsiSis</h1>
-                </div>
+<body class="bg-indigo-50 font-['Inter'] flex flex-col min-h-screen">
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <div class="p-6 flex items-center gap-3 border-b border-gray-200">
+                <i class="bi bi-heart-pulse text-indigo-600 text-3xl"></i>
+                <h1 class="text-2xl font-bold text-indigo-600">PsiSis</h1>
             </div>
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="dashboard.html" class="nav-link active"><i class="bi bi-grid-1x2-fill"></i> <span>Painel</span></a></li>
-                    <li><a href="agenda.html" class="nav-link"><i class="bi bi-calendar-event-fill"></i> <span>Agenda</span></a></li>
-                    <li><a href="pacientes.html" class="nav-link"><i class="bi bi-people-fill"></i> <span>Pacientes</span></a></li>
-                    <li><a href="#" class="nav-link"><i class="bi bi-file-earmark-bar-graph-fill"></i> <span>Relatórios</span></a></li>
-                </ul>
+
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 text-white bg-indigo-600 rounded-lg transition-colors">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span class="font-semibold">Painel</span>
+                </a>
+                <a href="agenda.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-calendar-event-fill"></i>
+                    <span>Agenda</span>
+                </a>
+                <a href="pacientes.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-people-fill"></i>
+                    <span>Pacientes</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-file-earmark-bar-graph-fill"></i>
+                    <span>Relatórios</span>
+                </a>
             </nav>
-            <div class="sidebar-footer">
-                <a href="index.html" class="nav-link"><i class="bi bi-box-arrow-left"></i> <span>Sair</span></a>
+
+            <div class="p-4 border-t border-gray-200">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-100 hover:text-red-700 rounded-lg transition-colors">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Sair</span>
+                </a>
             </div>
         </aside>
 
-        <div class="main-content-wrapper">
-            <header class="top-header">
-                <h2>Painel Principal</h2>
-                <div class="header-right">
-                    <div class="search-bar">
-                        <i class="bi bi-search"></i>
-                        <input type="text" placeholder="Buscar pacientes...">
-                    </div>
-                    <div class="user-profile">
-                        <img src="https://i.pravatar.cc/40?u=psicologo" alt="Avatar do Usuário" class="user-avatar">
-                        <div class="user-info">
-                            <span class="user-name">Dr. João Silva</span>
-                            <span class="user-role">Psicólogo Clínico</span>
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-gray-800">Painel Principal</h2>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <button id="profile-button" class="flex items-center gap-3 focus:outline-none">
+                            <img src="https://i.pravatar.cc/317" alt="Avatar da Dra. Regina Ribeiro" class="w-10 h-10 rounded-full">
+                            <div>
+                                <p class="text-sm font-semibold text-left">Dra. Regina Ribeiro</p>
+                                <p class="text-xs text-gray-500 text-left">Psicóloga Clínica</p>
+                            </div>
+                            <i class="bi bi-chevron-down text-gray-500"></i>
+                        </button>
+                        <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-10">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Meu Perfil</a>
+                            <a href="index.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700">Sair</a>
                         </div>
                     </div>
                 </div>
             </header>
 
-            <main class="main-content">
-                <section class="stats-overview">
-                    <div class="stat-card">
-                        <div class="stat-icon" style="background-color: var(--primary-light); color: var(--primary-color);"><i class="bi bi-calendar-check-fill"></i></div>
-                        <div class="stat-info"><h4>Consultas Hoje</h4><p>5</p></div>
+            <!-- Main -->
+            <main class="flex-1 p-6 md:p-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md flex items-center gap-4 hover:shadow-lg transition-shadow">
+                        <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full"><i class="bi bi-calendar-check-fill text-2xl"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Consultas Hoje</p>
+                            <p class="text-2xl font-bold text-gray-800">5</p>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon" style="background-color: var(--secondary-light); color: var(--secondary-color);"><i class="bi bi-people-fill"></i></div>
-                        <div class="stat-info"><h4>Pacientes Ativos</h4><p>67</p></div>
+                    <div class="bg-white p-6 rounded-xl shadow-md flex items-center gap-4 hover:shadow-lg transition-shadow">
+                        <div class="bg-green-100 text-green-600 p-3 rounded-full"><i class="bi bi-people-fill text-2xl"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Pacientes Ativos</p>
+                            <p class="text-2xl font-bold text-gray-800">67</p>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon" style="background-color: #FFFBEB; color: #D97706;"><i class="bi bi-hourglass-split"></i></div>
-                        <div class="stat-info"><h4>Prontuários Pendentes</h4><p>2</p></div>
+                    <div class="bg-white p-6 rounded-xl shadow-md flex items-center gap-4 hover:shadow-lg transition-shadow">
+                        <div class="bg-yellow-100 text-yellow-600 p-3 rounded-full"><i class="bi bi-hourglass-split text-2xl"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Prontuários Pendentes</p>
+                            <p class="text-2xl font-bold text-gray-800">2</p>
+                        </div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-icon" style="background-color: #EFF6FF; color: #3B82F6;"><i class="bi bi-cash-coin"></i></div>
-                        <div class="stat-info"><h4>Faturamento (Mês)</h4><p>R$ 12.5k</p></div>
+                    <div class="bg-white p-6 rounded-xl shadow-md flex items-center gap-4 hover:shadow-lg transition-shadow">
+                        <div class="bg-blue-100 text-blue-600 p-3 rounded-full"><i class="bi bi-cash-coin text-2xl"></i></div>
+                        <div>
+                            <p class="text-sm text-gray-500">Faturamento (Mês)</p>
+                            <p class="text-2xl font-bold text-gray-800">R$ 12.5k</p>
+                        </div>
                     </div>
-                </section>
-                
-                <section class="data-table-container" style="margin-top: 2rem;">
-                     <h3 style="padding: 1.5rem 1.5rem 0 1.5rem;">Próximas Consultas do Dia</h3>
-                     <table class="data-table">
-                        <thead>
-                            <tr><th>Horário</th><th>Paciente</th><th>Tipo da Sessão</th><th>Status</th><th>Ações</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>09:00</td><td>Ana Clara Souza</td><td>Sessão de Rotina</td><td>Confirmada</td><td><a href="prontuario.html" class="btn">Ver Prontuário</a></td></tr>
-                            <tr><td>10:30</td><td>Roberto Martins</td><td>Avaliação Inicial</td><td>Pendente</td><td><a href="prontuario.html" class="btn">Ver Prontuário</a></td></tr>
-                            <tr><td>14:00</td><td>Juliana Ferreira</td><td>Terapia Cognitivo-Comportamental</td><td>Confirmada</td><td><a href="prontuario.html" class="btn">Ver Prontuário</a></td></tr>
-                        </tbody>
-                     </table>
-                </section>
+                </div>
+
+                <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Próximas Consultas -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Próximas Consultas do Dia</h3>
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200">
+                                    <th class="p-3 text-sm font-semibold text-gray-500">Horário</th>
+                                    <th class="p-3 text-sm font-semibold text-gray-500">Paciente</th>
+                                    <th class="p-3 text-sm font-semibold text-gray-500">Status</th>
+                                    <th class="p-3 text-sm font-semibold text-gray-500">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100 hover:bg-indigo-50 transition-colors">
+                                    <td class="p-4 font-semibold">09:00</td>
+                                    <td class="p-4">Ana Clara Souza</td>
+                                    <td class="p-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Confirmada</span></td>
+                                    <td class="p-4"><a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold">Ver Prontuário</a></td>
+                                </tr>
+                                <tr class="border-b border-gray-100 hover:bg-indigo-50 transition-colors">
+                                    <td class="p-4 font-semibold">10:30</td>
+                                    <td class="p-4">Roberto Martins</td>
+                                    <td class="p-4"><span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-1 rounded-full">Pendente</span></td>
+                                    <td class="p-4"><a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold">Ver Prontuário</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Mini-Gráfico de Evolução -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Evolução Recente (Ana Clara Souza)</h3>
+                        <canvas id="evolucaoChart" class="w-full h-40"></canvas>
+                        <p class="text-sm text-gray-500 mt-4">Métricas de humor registradas nas últimas 5 sessões (CU-PS09).</p>
+                    </div>
+                </div>
             </main>
+
+            <!-- Footer -->
+            <footer class="mt-6 text-center text-xs text-gray-500 p-4">
+                Projeto acadêmico da disciplina de Engenharia de Requisitos – PUC Goiás
+            </footer>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dropdown do Perfil
+        const profileButton = document.getElementById('profile-button');
+        const profileDropdown = document.getElementById('profile-dropdown');
+
+        profileButton.addEventListener('click', () => {
+            profileDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!profileButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+                profileDropdown.classList.add('hidden');
+            }
+        });
+
+        // Gráfico de Evolução (CU-PS09)
+        const ctx = document.getElementById('evolucaoChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Sessão 1', 'Sessão 2', 'Sessão 3', 'Sessão 4', 'Sessão 5'],
+                datasets: [{
+                    label: 'Nível de Humor',
+                    data: [6, 7, 8, 7.5, 8.5],
+                    borderColor: '#4F46E5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        title: {
+                            display: true,
+                            text: 'Nível de Humor'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>

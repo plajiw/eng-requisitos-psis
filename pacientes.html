@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes - PsiSis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-['Inter']">
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <div class="p-6 flex items-center gap-3 border-b border-gray-200">
+                <i class="bi bi-heart-pulse text-indigo-600 text-3xl"></i>
+                <h1 class="text-2xl font-bold text-indigo-600">PsiSis</h1>
+            </div>
+
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Painel</span>
+                </a>
+                <a href="agenda.html" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">
+                    <i class="bi bi-calendar-event-fill"></i>
+                    <span>Agenda</span>
+                </a>
+                <a href="pacientes.html" class="flex items-center gap-3 px-4 py-2 text-white bg-indigo-600 rounded-lg">
+                    <i class="bi bi-people-fill"></i>
+                    <span class="font-semibold">Pacientes</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">
+                    <i class="bi bi-file-earmark-bar-graph-fill"></i>
+                    <span>Relatórios</span>
+                </a>
+            </nav>
+
+            <div class="p-4 border-t border-gray-200">
+                 <a href="index.html" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col">
+            <header class="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-gray-800">Meus Pacientes</h2>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <button id="profile-button" class="flex items-center gap-3">
+                            <img src="https://i.pravatar.cc/40?u=regina" alt="Avatar da Dra. Regina" class="w-10 h-10 rounded-full">
+                            <div>
+                                <p class="text-sm font-semibold text-left">Dra. Regina Ribeiro</p>
+                                <p class="text-xs text-gray-500 text-left">Psicóloga Clínica</p>
+                            </div>
+                            <i class="bi bi-chevron-down text-gray-500"></i>
+                        </button>
+                        <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-10">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Meu Perfil</a>
+                            <a href="index.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50">Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 p-8 bg-gray-50">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-2 bg-white border border-gray-300 rounded-lg px-3 shadow-sm">
+                         <i class="bi bi-search text-gray-400"></i>
+                         <input type="text" placeholder="Buscar por nome ou CPF..." class="py-2 border-0 outline-none focus:ring-0 bg-transparent">
+                    </div>
+                    <button class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-indigo-700 transition-colors shadow">
+                        <i class="bi bi-person-plus-fill"></i>
+                        <span>Adicionar Paciente</span>
+                    </button>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50">
+                            <tr class="border-b-2 border-gray-200">
+                                <th class="p-4 text-sm font-semibold text-gray-500">PACIENTE</th>
+                                <th class="p-4 text-sm font-semibold text-gray-500">ÚLTIMA CONSULTA</th>
+                                <th class="p-4 text-sm font-semibold text-gray-500">STATUS</th>
+                                <th class="p-4 text-sm font-semibold text-gray-500">AÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr>
+                                <td class="p-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://i.pravatar.cc/40?u=paciente1" alt="Avatar" class="w-10 h-10 rounded-full">
+                                        <div>
+                                            <p class="font-semibold text-gray-800">Ana Clara Souza</p>
+                                            <p class="text-sm text-gray-500">ana.souza@email.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 text-gray-600">05/06/2025</td>
+                                <td class="p-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Ativo</span></td>
+                                <td class="p-4"><a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold">Ver Prontuário</a></td>
+                            </tr>
+                             <tr>
+                                <td class="p-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://i.pravatar.cc/40?u=paciente2" alt="Avatar" class="w-10 h-10 rounded-full">
+                                        <div>
+                                            <p class="font-semibold text-gray-800">Roberto Martins</p>
+                                            <p class="text-sm text-gray-500">roberto.m@email.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 text-gray-600">28/05/2025</td>
+                                <td class="p-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Ativo</span></td>
+                                <td class="p-4"><a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold">Ver Prontuário</a></td>
+                            </tr>
+                             <tr>
+                                <td class="p-4">
+                                    <div class="flex items-center gap-3">
+                                        <img src="https://i.pravatar.cc/40?u=paciente3" alt="Avatar" class="w-10 h-10 rounded-full">
+                                        <div>
+                                            <p class="font-semibold text-gray-800">Carlos Andrade</p>
+                                            <p class="text-sm text-gray-500">c.andrade@email.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="p-4 text-gray-600">15/03/2025</td>
+                                <td class="p-4"><span class="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full">Inativo</span></td>
+                                <td class="p-4"><a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold">Ver Prontuário</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const profileButton = document.getElementById('profile-button');
+        const profileDropdown = document.getElementById('profile-dropdown');
+        if (profileButton) {
+            profileButton.addEventListener('click', () => {
+                profileDropdown.classList.toggle('hidden');
+            });
+            document.addEventListener('click', (event) => {
+                if (!profileButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+                    profileDropdown.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

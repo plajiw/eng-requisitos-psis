@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prontuário do Paciente - PsiSis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-indigo-50 font-['Inter'] flex flex-col min-h-screen">
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <div class="p-6 flex items-center gap-3 border-b border-gray-200">
+                <i class="bi bi-heart-pulse text-indigo-600 text-3xl"></i>
+                <h1 class="text-2xl font-bold text-indigo-600">PsiSis</h1>
+            </div>
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-grid-1x2-fill"></i> <span>Painel</span>
+                </a>
+                <a href="agenda.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-calendar-event-fill"></i> <span>Agenda</span>
+                </a>
+                <a href="pacientes.html" class="flex items-center gap-3 px-4 py-3 text-white bg-indigo-600 rounded-lg">
+                    <i class="bi bi-people-fill"></i> <span class="font-semibold">Pacientes</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-file-earmark-bar-graph-fill"></i> <span>Relatórios</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-gray-200">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-100 hover:text-red-700 rounded-lg transition-colors">
+                    <i class="bi bi-box-arrow-left"></i> <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-gray-800">Prontuário do Paciente</h2>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <button id="profile-button" class="flex items-center gap-3 focus:outline-none">
+                            <img src="https://i.pravatar.cc/40?u=regina" alt="Avatar da Dra. Regina Ribeiro" class="w-10 h-10 rounded-full">
+                            <div>
+                                <p class="text-sm font-semibold text-left">Dra. Regina Ribeiro</p>
+                                <p class="text-xs text-gray-500 text-left">Psicóloga Clínica</p>
+                            </div>
+                            <i class="bi bi-chevron-down text-gray-500"></i>
+                        </button>
+                        <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-10">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Meu Perfil</a>
+                            <a href="index.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700">Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main -->
+            <main class="flex-1 p-6 md:p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/80?u=ana" alt="Avatar de Ana Clara Souza" class="w-20 h-20 rounded-full">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800">Ana Clara Souza</h3>
+                            <p class="text-gray-500">ana.souza@psis.com - (62) 99999-8888</p>
+                        </div>
+                    </div>
+                    <button class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-indigo-700 transition-colors shadow">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                        <span>Gerar Relatório</span>
+                    </button>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <nav class="-mb-px flex gap-6" id="tab-buttons">
+                        <button data-tab="evolucao" class="tab-btn border-b-2 border-indigo-600 text-indigo-600 font-semibold">Evolução das Sessões</button>
+                        <button data-tab="documentos" class="tab-btn text-gray-600 hover:text-indigo-600">Documentos Anexados</button>
+                        <button data-tab="painel" class="tab-btn text-gray-600 hover:text-indigo-600">Painel de Evolução</button>
+                    </nav>
+                </div>
+
+                <div class="mt-6">
+                    <!-- Evolução das Sessões -->
+                    <div id="evolucao" class="tab-content">
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Registrar Nova Evolução</h4>
+                            <form class="space-y-4">
+                                <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all" rows="5" placeholder="Digite aqui as anotações da sessão..."></textarea>
+                                <div class="flex items-center gap-2">
+                                    <input type="checkbox" id="visible-patient" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                                    <label for="visible-patient" class="text-sm text-gray-600">Visível para o paciente</label>
+                                </div>
+                                <button type="submit" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors">Salvar Evolução</button>
+                            </form>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Histórico de Sessões</h4>
+                            <div class="space-y-6">
+                                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                                    <div class="flex justify-between">
+                                        <p class="font-semibold text-gray-800">Sessão #12 - 05/06/2025</p>
+                                        <span class="text-xs text-green-600">Visível para o paciente</span>
+                                    </div>
+                                    <p class="mt-2 text-gray-600">Paciente demonstrou progresso significativo nas técnicas de respiração discutidas. Relatou diminuição nos episódios de ansiedade aguda.</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+                                    <div class="flex justify-between">
+                                        <p class="font-semibold text-gray-800">Sessão #11 - 29/05/2025</p>
+                                        <span class="text-xs text-gray-500">Privado</span>
+                                    </div>
+                                    <p class="mt-2 text-gray-600">Exploramos a origem de alguns pensamentos intrusivos. Tarefa de casa: manter um diário de gatilhos emocionais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documentos Anexados -->
+                    <div id="documentos" class="tab-content hidden">
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold text-gray-800">Documentos do Paciente</h4>
+                                <button id="open-upload-modal" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-green-700 transition-colors">
+                                    <i class="bi bi-file-earmark-plus-fill"></i>
+                                    <span>Anexar Novo Documento</span>
+                                </button>
+                            </div>
+                            <ul class="divide-y divide-gray-200">
+                                <li class="flex items-center justify-between py-3">
+                                    <div class="flex items-center gap-3">
+                                        <i class="bi bi-file-earmark-pdf-fill text-red-500 text-2xl"></i>
+                                        <span class="font-medium">laudo_neuropsicologico.pdf</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm text-gray-500">02/03/2025</span>
+                                        <span class="text-xs text-green-600">Visível para o paciente</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-center justify-between py-3">
+                                    <div class="flex items-center gap-3">
+                                        <i class="bi bi-file-earmark-image-fill text-blue-500 text-2xl"></i>
+                                        <span class="font-medium">desenho_sessao_terapeutica.jpg</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-sm text-gray-500">15/04/2025</span>
+                                        <span class="text-xs text-gray-500">Privado</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Painel de Evolução -->
+                    <div id="painel" class="tab-content hidden">
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">Acompanhamento Gráfico de Métricas</h4>
+                            <p class="text-gray-600 mb-4">Evolução da Métrica: Nível de Ansiedade (últimos 6 meses)</p>
+                            <canvas id="evolucaoChart" class="w-full h-64"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="mt-6 text-center text-xs text-gray-500 p-4">
+                Projeto acadêmico da disciplina de Engenharia de Requisitos – PUC Goiás
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal de Upload de Documento -->
+    <div id="upload-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-30">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold text-gray-800">Anexar Novo Documento</h3>
+                <button id="close-upload-modal" class="text-gray-500 hover:text-gray-800 text-2xl">×</button>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label for="file-upload" class="block text-sm font-medium text-gray-700">Selecionar Arquivo</label>
+                    <input type="file" id="file-upload" class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="visible-patient-upload" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="visible-patient-upload" class="text-sm text-gray-600">Visível para o paciente</label>
+                </div>
+                <div class="flex justify-end gap-4 pt-4">
+                    <button type="button" id="cancel-upload-btn" class="bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Cancelar</button>
+                    <button type="submit" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700">Anexar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dropdown do Perfil
+        const profileButton = document.getElementById('profile-button');
+        const profileDropdown = document.getElementById('profile-dropdown');
+        if (profileButton) {
+            profileButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('hidden');
+            });
+            document.addEventListener('click', () => profileDropdown.classList.add('hidden'));
+        }
+
+        // Lógica das Abas
+        const tabButtonsContainer = document.getElementById('tab-buttons');
+        const tabContents = document.querySelectorAll('.tab-content');
+        if (tabButtonsContainer) {
+            tabButtonsContainer.addEventListener('click', (e) => {
+                const clickedButton = e.target.closest('.tab-btn');
+                if (!clickedButton) return;
+
+                tabButtonsContainer.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('border-b-2', 'border-indigo-600', 'text-indigo-600', 'font-semibold');
+                    btn.classList.add('text-gray-600');
+                });
+                clickedButton.classList.add('border-b-2', 'border-indigo-600', 'text-indigo-600', 'font-semibold');
+                clickedButton.classList.remove('text-gray-600');
+
+                const targetTab = clickedButton.dataset.tab;
+                tabContents.forEach(content => content.classList.add('hidden'));
+                document.getElementById(targetTab).classList.remove('hidden');
+            });
+        }
+
+        // Modal de Upload
+        const openUploadModal = document.getElementById('open-upload-modal');
+        const closeUploadModal = document.getElementById('close-upload-modal');
+        const cancelUploadBtn = document.getElementById('cancel-upload-btn');
+        const uploadModal = document.getElementById('upload-modal');
+        if (uploadModal) {
+            openUploadModal.addEventListener('click', () => uploadModal.classList.remove('hidden'));
+            closeUploadModal.addEventListener('click', () => uploadModal.classList.add('hidden'));
+            cancelUploadBtn.addEventListener('click', () => uploadModal.classList.add('hidden'));
+        }
+
+        // Gráfico de Evolução (CU-PS09)
+        const ctx = document.getElementById('evolucaoChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan/2025', 'Fev/2025', 'Mar/2025', 'Abr/2025', 'Mai/2025', 'Jun/2025'],
+                datasets: [{
+                    label: 'Nível de Ansiedade',
+                    data: [8, 7.5, 7, 6.5, 6, 5.5],
+                    borderColor: '#4F46E5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        title: {
+                            display: true,
+                            text: 'Nível de Ansiedade'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

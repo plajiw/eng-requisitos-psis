@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - PsiSis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-indigo-50 font-['Inter'] flex flex-col min-h-screen">
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <div class="p-6 flex items-center gap-3 border-b border-gray-200">
+                <i class="bi bi-heart-pulse text-indigo-600 text-3xl"></i>
+                <h1 class="text-2xl font-bold text-indigo-600">PsiSis</h1>
+            </div>
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-grid-1x2-fill"></i> <span>Painel</span>
+                </a>
+                <a href="agenda.html" class="flex items-center gap-3 px-4 py-3 text-white bg-indigo-600 rounded-lg">
+                    <i class="bi bi-calendar-event-fill"></i> <span class="font-semibold">Agenda</span>
+                </a>
+                <a href="pacientes.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-people-fill"></i> <span>Pacientes</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-file-earmark-bar-graph-fill"></i> <span>Relatórios</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-gray-200">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-100 hover:text-red-700 rounded-lg transition-colors">
+                    <i class="bi bi-box-arrow-left"></i> <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-gray-800">Agenda</h2>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <button id="profile-button" class="flex items-center gap-3 focus:outline-none">
+                            <img src="https://i.pravatar.cc/40?u=regina" alt="Avatar da Dra. Regina Ribeiro" class="w-10 h-10 rounded-full">
+                            <div>
+                                <p class="text-sm font-semibold text-left">Dra. Regina Ribeiro</p>
+                                <p class="text-xs text-gray-500 text-left">Psicóloga Clínica</p>
+                            </div>
+                            <i class="bi bi-chevron-down text-gray-500"></i>
+                        </button>
+                        <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-10">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Meu Perfil</a>
+                            <a href="index.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700">Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main -->
+            <main class="flex-1 p-6 md:p-8">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                    <div class="flex items-center gap-2">
+                        <button class="p-2 rounded-lg hover:bg-indigo-100"><i class="bi bi-chevron-left text-indigo-600"></i></button>
+                        <span class="font-semibold text-lg text-gray-700">8 de Junho – 14 de Junho, 2025</span>
+                        <button class="p-2 rounded-lg hover:bg-indigo-100"><i class="bi bi-chevron-right text-indigo-600"></i></button>
+                    </div>
+                    <div class="flex gap-4">
+                        <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                            <option>Todos os Pacientes</option>
+                            <option>Ana Clara Souza</option>
+                            <option>Roberto Martins</option>
+                            <option>Juliana Ferreira</option>
+                        </select>
+                        <button id="open-modal-btn" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-indigo-700 transition-colors shadow">
+                            <i class="bi bi-calendar-plus-fill"></i>
+                            <span>Novo Agendamento</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-[auto,1fr,1fr,1fr,1fr,1fr,1fr,1fr] text-sm text-center font-semibold text-gray-500 border-t border-l border-gray-200 bg-white shadow-md rounded-xl overflow-hidden">
+                    <div class="p-2 border-b border-r border-gray-200 bg-gray-50"></div>
+                    <div class="p-2 border-b border-r border-gray-200 bg-gray-50">Dom, 8</div>
+                    <div class="p-2 border-b border-r border-gray-200 bg-gray-50">Seg, 9</div>
+                    <div class="p-2 border-b border-r border-gray-200 bg-gray-50">Ter, 10</div>
+                    <div class="p-2 border-b border-r border-gray-200 bg-gray-50">Qua, 11</div>
+                    <div class="p-2 border-b border-r border-gray-200 bg-gray-50">Qui, 12</div>
+                    <div class="p-2 border-b border-r border-gray-200 bg-gray-50">Sex, 13</div>
+                    <div class="p-2 border-b border-gray-200 bg-gray-50">Sáb, 14</div>
+
+                    <div class="p-2 border-b border-r border-gray-200 bg-gray-50 text-xs">09:00</div>
+                    <div class="h-24 border-b border-r border-gray-200"></div>
+                    <div class="h-24 border-b border-r border-gray-200 relative">
+                        <div class="absolute inset-1 bg-indigo-100 text-indigo-800 p-2 rounded-lg text-left text-xs overflow-hidden hover:bg-indigo-200 cursor-pointer">
+                            <p class="font-bold">Ana Clara Souza</p>
+                            <p>Sessão de Rotina</p>
+                            <a href="prontuario.html" class="text-indigo-600 hover:underline text-xs">Ver Prontuário</a>
+                        </div>
+                    </div>
+                    <div class="h-24 border-b border-r border-gray-200"></div>
+                    <div class="h-24 border-b border-r border-gray-200 relative">
+                        <div class="absolute inset-1 bg-red-100 text-red-800 p-2 rounded-lg text-left text-xs overflow-hidden">
+                            <p class="font-bold">BLOQUEADO</p>
+                            <p>Almoço</p>
+                        </div>
+                    </div>
+                    <div class="h-24 border-b border-r border-gray-200"></div>
+                    <div class="h-24 border-b border-r border-gray-200"></div>
+                    <div class="h-24 border-b border-gray-200"></div>
+
+                    <div class="p-2 border-b border-r border-gray-200 bg-gray-50 text-xs">10:00</div>
+                    <div class="h-24 border-b border-r border-gray-200"></div>
+                    <div class="h-24 border-b border-r border-gray-200"></div>
+                    <div class="h-24 border-b border-r border-gray-200 relative">
+                        <div class="absolute inset-1 bg-indigo-100 text-indigo-800 p-2 rounded-lg text-left text-xs overflow-hidden hover:bg-indigo-200 cursor-pointer">
+                            <p class="font-bold">Juliana Ferreira</p>
+                            <p>TCC</p>
+                            <a href="prontuario.html" class="text-indigo-600 hover:underline text-xs">Ver Prontuário</a>
+                        </div>
+                    </div>
+                    <div class="h-24 border-b border-r border-gray-200"></div>
+                    <div class="h-24 border-b border-r border-gray-200 relative">
+                        <div class="absolute inset-1 bg-indigo-100 text-indigo-800 p-2 rounded-lg text-left text-xs overflow-hidden hover:bg-indigo-200 cursor-pointer">
+                            <p class="font-bold">Roberto Martins</p>
+                            <p>Avaliação Inicial</p>
+                            <a href="prontuario.html" class="text-indigo-600 hover:underline text-xs">Ver Prontuário</a>
+                        </div>
+                    </div>
+                    <div class="h-24 border-b border-r border-gray-200"></div>
+                    <div class="h-24 border-b border-gray-200"></div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="mt-6 text-center text-xs text-gray-500 p-4">
+                Projeto acadêmico da disciplina de Engenharia de Requisitos – PUC Goiás
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal de Agendamento -->
+    <div id="agendamento-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-30">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold text-gray-800">Novo Agendamento</h3>
+                <button id="close-modal-btn" class="text-gray-500 hover:text-gray-800 text-2xl">×</button>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label for="paciente" class="block text-sm font-medium text-gray-700">Paciente</label>
+                    <select id="paciente" class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                        <option value="">Selecione um paciente</option>
+                        <option>Ana Clara Souza</option>
+                        <option>Roberto Martins</option>
+                        <option>Juliana Ferreira</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="data" class="block text-sm font-medium text-gray-700">Data da Consulta</label>
+                    <input type="date" id="data" class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div class="flex gap-4">
+                    <div class="w-1/2">
+                        <label for="inicio" class="block text-sm font-medium text-gray-700">Horário de Início</label>
+                        <input type="time" id="inicio" class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                    <div class="w-1/2">
+                        <label for="fim" class="block text-sm font-medium text-gray-700">Horário de Fim</label>
+                        <input type="time" id="fim" class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    </div>
+                </div>
+                <div>
+                    <label for="tipo" class="block text-sm font-medium text-gray-700">Tipo de Sessão</label>
+                    <input type="text" id="tipo" class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" placeholder="Ex.: Sessão de Rotina, Avaliação Inicial">
+                </div>
+                <div class="flex justify-end gap-4 pt-4">
+                    <button type="button" id="cancel-btn" class="bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Cancelar</button>
+                    <button type="submit" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700">Salvar Agendamento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Dropdown do Perfil
+        const profileButton = document.getElementById('profile-button');
+        const profileDropdown = document.getElementById('profile-dropdown');
+        if (profileButton) {
+            profileButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('hidden');
+            });
+            document.addEventListener('click', () => profileDropdown.classList.add('hidden'));
+        }
+
+        // Modal de Agendamento
+        const openModalBtn = document.getElementById('open-modal-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const cancelBtn = document.getElementById('cancel-btn');
+        const modal = document.getElementById('agendamento-modal');
+
+        if (modal) {
+            openModalBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+            closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+            cancelBtn.addEventListener('click', () => modal.classList.add('hidden'));
+        }
+    </script>
+</body>
+</html>

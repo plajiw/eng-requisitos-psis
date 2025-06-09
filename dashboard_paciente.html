@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PsiSis (Paciente)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-indigo-50 font-['Inter'] flex flex-col min-h-screen">
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
+            <div class="p-6 flex items-center gap-3 border-b border-gray-200">
+                <i class="bi bi-heart-pulse text-indigo-600 text-3xl"></i>
+                <h1 class="text-2xl font-bold text-indigo-600">PsiSis</h1>
+            </div>
+
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="dashboard_paciente.html" class="flex items-center gap-3 px-4 py-3 text-white bg-indigo-600 rounded-lg transition-colors">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span class="font-semibold">Painel</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-calendar-event-fill"></i>
+                    <span>Minhas Consultas</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    <span>Materiais</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Meu Perfil</span>
+                </a>
+            </nav>
+
+            <div class="p-4 border-t border-gray-200">
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-100 hover:text-red-700 rounded-lg transition-colors">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-gray-800">Painel do Paciente</h2>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <button id="profile-button" class="flex items-center gap-3 focus:outline-none">
+                            <img src="https://i.pravatar.cc/318" alt="Avatar de Ana Clara Souza" class="w-10 h-10 rounded-full">
+                            <div>
+                                <p class="text-sm font-semibold text-left">Ana Clara Souza</p>
+                                <p class="text-xs text-gray-500 text-left">Paciente</p>
+                            </div>
+                            <i class="bi bi-chevron-down text-gray-500"></i>
+                        </button>
+                        <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-10">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Meu Perfil</a>
+                            <a href="index.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700">Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main -->
+            <main class="flex-1 p-6 md:p-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Próxima Consulta -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Próxima Consulta</h3>
+                        <div class="flex items-center gap-4">
+                            <div class="bg-indigo-100 text-indigo-600 p-3 rounded-full"><i class="bi bi-calendar-check-fill text-2xl"></i></div>
+                            <div>
+                                <p class="text-sm text-gray-500">Data: 09/06/2025, 09:00</p>
+                                <p class="text-sm text-gray-500">Psicóloga: Dra. Regina Ribeiro</p>
+                                <p class="text-sm text-gray-500">Status: <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Confirmada</span></p>
+                            </div>
+                        </div>
+                        <a href="#" class="mt-4 inline-block text-indigo-600 hover:underline font-semibold">Ver Detalhes</a>
+                    </div>
+
+                    <!-- Materiais Disponíveis -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Materiais Disponíveis</h3>
+                        <div class="flex items-center gap-4">
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-full"><i class="bi bi-file-earmark-text-fill text-2xl"></i></div>
+                            <div>
+                                <p class="text-sm text-gray-500">Guia de Técnicas de Relaxamento</p>
+                                <p class="text-sm text-gray-500">Enviado por: Dra. Regina Ribeiro</p>
+                            </div>
+                        </div>
+                        <a href="#" class="mt-4 inline-block text-indigo-600 hover:underline font-semibold">Acessar Material</a>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Evolução -->
+                <div class="mt-8 bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Minha Evolução</h3>
+                    <canvas id="evolucaoChart" class="w-full h-40"></canvas>
+                    <p class="text-sm text-gray-500 mt-4">Métricas de humor registradas nas últimas 5 sessões (CU-P05).</p>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="mt-6 text-center text-xs text-gray-500 p-4">
+                Projeto acadêmico da disciplina de Engenharia de Requisitos – PUC Goiás
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dropdown do Perfil
+        const profileButton = document.getElementById('profile-button');
+        const profileDropdown = document.getElementById('profile-dropdown');
+
+        profileButton.addEventListener('click', () => {
+            profileDropdown.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!profileButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+                profileDropdown.classList.add('hidden');
+            }
+        });
+
+        // Gráfico de Evolução (CU-P05)
+        const ctx = document.getElementById('evolucaoChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Sessão 1', 'Sessão 2', 'Sessão 3', 'Sessão 4', 'Sessão 5'],
+                datasets: [{
+                    label: 'Nível de Humor',
+                    data: [6, 7, 8, 7.5, 8.5],
+                    borderColor: '#4F46E5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10,
+                        title: {
+                            display: true,
+                            text: 'Nível de Humor'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
