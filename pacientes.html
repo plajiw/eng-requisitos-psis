@@ -4,53 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacientes - PsiSis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 font-['Inter']">
-
-    <div class="flex min-h-screen">
+<body class="bg-indigo-50 font-['Inter'] flex flex-col min-h-screen">
+    <div class="flex flex-1">
+        <!-- Sidebar -->
         <aside class="w-64 bg-white border-r border-gray-200 flex flex-col">
             <div class="p-6 flex items-center gap-3 border-b border-gray-200">
-                <i class="bi bi-heart-pulse text-indigo-600 text-3xl"></i>
+                <i class="bi bi-heart-pulse text-indigo-600 text-3xl" aria-hidden="true"></i>
                 <h1 class="text-2xl font-bold text-indigo-600">PsiSis</h1>
             </div>
-
             <nav class="flex-1 p-4 space-y-2">
-                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">
-                    <i class="bi bi-grid-1x2-fill"></i>
-                    <span>Painel</span>
+                <a href="dashboard.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-grid-1x2-fill"></i> <span>Painel</span>
                 </a>
-                <a href="agenda.html" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">
-                    <i class="bi bi-calendar-event-fill"></i>
-                    <span>Agenda</span>
+                <a href="agenda.html" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-calendar-event-fill"></i> <span>Agenda</span>
                 </a>
-                <a href="pacientes.html" class="flex items-center gap-3 px-4 py-2 text-white bg-indigo-600 rounded-lg">
-                    <i class="bi bi-people-fill"></i>
-                    <span class="font-semibold">Pacientes</span>
+                <a href="pacientes.html" class="flex items-center gap-3 px-4 py-3 text-white bg-indigo-600 rounded-lg">
+                    <i class="bi bi-people-fill"></i> <span class="font-semibold">Pacientes</span>
                 </a>
-                <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">
-                    <i class="bi bi-file-earmark-bar-graph-fill"></i>
-                    <span>Relatórios</span>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-indigo-100 hover:text-indigo-700 rounded-lg transition-colors">
+                    <i class="bi bi-file-earmark-bar-graph-fill"></i> <span>Relatórios</span>
                 </a>
             </nav>
-
             <div class="p-4 border-t border-gray-200">
-                 <a href="index.html" class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors">
-                    <i class="bi bi-box-arrow-left"></i>
-                    <span>Sair</span>
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-100 hover:text-red-700 rounded-lg transition-colors">
+                    <i class="bi bi-box-arrow-left"></i> <span>Sair</span>
                 </a>
             </div>
         </aside>
 
+        <!-- Main Content -->
         <div class="flex-1 flex flex-col">
+            <!-- Header -->
             <header class="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
                 <h2 class="text-xl font-semibold text-gray-800">Meus Pacientes</h2>
                 <div class="flex items-center gap-4">
                     <div class="relative">
-                        <button id="profile-button" class="flex items-center gap-3">
-                            <img src="https://i.pravatar.cc/40?u=regina" alt="Avatar da Dra. Regina" class="w-10 h-10 rounded-full">
+                        <button id="profile-button" class="flex items-center gap-3 focus:outline-none" aria-label="Menu do perfil">
+                            <img src="https://i.pravatar.cc/40?u=regina" alt="Avatar da Dra. Regina Ribeiro" class="w-10 h-10 rounded-full">
                             <div>
                                 <p class="text-sm font-semibold text-left">Dra. Regina Ribeiro</p>
                                 <p class="text-xs text-gray-500 text-left">Psicóloga Clínica</p>
@@ -58,96 +55,207 @@
                             <i class="bi bi-chevron-down text-gray-500"></i>
                         </button>
                         <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 z-10">
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Meu Perfil</a>
-                            <a href="index.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50">Sair</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Meu Perfil</a>
+                            <a href="index.html" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:text-red-700">Sair</a>
                         </div>
                     </div>
                 </div>
             </header>
 
-            <main class="flex-1 p-8 bg-gray-50">
+            <!-- Main -->
+            <main class="flex-1 p-6 md:p-8">
                 <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center gap-2 bg-white border border-gray-300 rounded-lg px-3 shadow-sm">
-                         <i class="bi bi-search text-gray-400"></i>
-                         <input type="text" placeholder="Buscar por nome ou CPF..." class="py-2 border-0 outline-none focus:ring-0 bg-transparent">
+                    <div class="flex items-center gap-2 bg-white border border-gray-300 rounded-lg px-3 py-2 shadow-sm w-full sm:w-80">
+                        <i class="bi bi-search text-gray-400" aria-hidden="true"></i>
+                        <input type="text" id="search-input" placeholder="Buscar por nome ou CPF..." aria-label="Buscar pacientes por nome ou CPF"
+                               class="py-1 border-0 outline-none focus:ring-0 bg-transparent text-gray-700 w-full">
                     </div>
-                    <button class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-indigo-700 transition-colors shadow">
+                    <button id="open-add-patient-modal" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg flex items-center gap-2 hover:bg-indigo-700 transition-colors shadow focus:ring-2 focus:ring-indigo-500 focus:outline-none">
                         <i class="bi bi-person-plus-fill"></i>
                         <span>Adicionar Paciente</span>
                     </button>
                 </div>
-                
-                <div class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <table class="w-full text-left">
-                        <thead class="bg-gray-50">
-                            <tr class="border-b-2 border-gray-200">
-                                <th class="p-4 text-sm font-semibold text-gray-500">PACIENTE</th>
-                                <th class="p-4 text-sm font-semibold text-gray-500">ÚLTIMA CONSULTA</th>
-                                <th class="p-4 text-sm font-semibold text-gray-500">STATUS</th>
-                                <th class="p-4 text-sm font-semibold text-gray-500">AÇÕES</th>
+
+                <div class="bg-white rounded-xl shadow-md overflow-x-auto">
+                    <table class="w-full text-left" role="grid" aria-describedby="patient-table-desc">
+                        <caption id="patient-table-desc" class="sr-only">Lista de pacientes com nome, última consulta, status e ações</caption>
+                        <thead class="bg-indigo-50">
+                            <tr class="border-b-2 border-indigo-100">
+                                <th class="p-4 text-sm font-semibold text-gray-700">PACIENTE</th>
+                                <th class="p-4 text-sm font-semibold text-gray-700">ÚLTIMA CONSULTA</th>
+                                <th class="p-4 text-sm font-semibold text-gray-700">STATUS</th>
+                                <th class="p-4 text-sm font-semibold text-gray-700">AÇÕES</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100">
-                            <tr>
+                            <tr class="hover:bg-indigo-50 transition-colors">
                                 <td class="p-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="https://i.pravatar.cc/40?u=paciente1" alt="Avatar" class="w-10 h-10 rounded-full">
+                                        <img src="https://i.pravatar.cc/40?u=ana" alt="Avatar de Ana Clara Souza" class="w-10 h-10 rounded-full">
                                         <div>
                                             <p class="font-semibold text-gray-800">Ana Clara Souza</p>
-                                            <p class="text-sm text-gray-500">ana.souza@email.com</p>
+                                            <p class="text-sm text-gray-500">ana.souza@psis.com</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="p-4 text-gray-600">05/06/2025</td>
                                 <td class="p-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Ativo</span></td>
-                                <td class="p-4"><a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold">Ver Prontuário</a></td>
+                                <td class="p-4 flex gap-2">
+                                    <a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold focus:ring-2 focus:ring-indigo-500 focus:outline-none">Ver Prontuário</a>
+                                    <button class="text-blue-600 hover:underline font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none" aria-label="Editar Ana Clara Souza">Editar</button>
+                                    <button class="text-red-600 hover:underline font-semibold focus:ring-2 focus:ring-red-500 focus:outline-none" aria-label="Desativar Ana Clara Souza">Desativar</button>
+                                </td>
                             </tr>
-                             <tr>
+                            <tr class="hover:bg-indigo-50 transition-colors">
                                 <td class="p-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="https://i.pravatar.cc/40?u=paciente2" alt="Avatar" class="w-10 h-10 rounded-full">
+                                        <img src="https://i.pravatar.cc/40?u=roberto" alt="Avatar de Roberto Martins" class="w-10 h-10 rounded-full">
                                         <div>
                                             <p class="font-semibold text-gray-800">Roberto Martins</p>
-                                            <p class="text-sm text-gray-500">roberto.m@email.com</p>
+                                            <p class="text-sm text-gray-500">roberto.m@psis.com</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="p-4 text-gray-600">28/05/2025</td>
                                 <td class="p-4"><span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">Ativo</span></td>
-                                <td class="p-4"><a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold">Ver Prontuário</a></td>
+                                <td class="p-4 flex gap-2">
+                                    <a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold focus:ring-2 focus:ring-indigo-500 focus:outline-none">Ver Prontuário</a>
+                                    <button class="text-blue-600 hover:underline font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none" aria-label="Editar Roberto Martins">Editar</button>
+                                    <button class="text-red-600 hover:underline font-semibold focus:ring-2 focus:ring-red-500 focus:outline-none" aria-label="Desativar Roberto Martins">Desativar</button>
+                                </td>
                             </tr>
-                             <tr>
+                            <tr class="hover:bg-indigo-50 transition-colors">
                                 <td class="p-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="https://i.pravatar.cc/40?u=paciente3" alt="Avatar" class="w-10 h-10 rounded-full">
+                                        <img src="https://i.pravatar.cc/40?u=carlos" alt="Avatar de Carlos Andrade" class="w-10 h-10 rounded-full">
                                         <div>
                                             <p class="font-semibold text-gray-800">Carlos Andrade</p>
-                                            <p class="text-sm text-gray-500">c.andrade@email.com</p>
+                                            <p class="text-sm text-gray-500">c.andrade@psis.com</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="p-4 text-gray-600">15/03/2025</td>
                                 <td class="p-4"><span class="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full">Inativo</span></td>
-                                <td class="p-4"><a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold">Ver Prontuário</a></td>
+                                <td class="p-4 flex gap-2">
+                                    <a href="prontuario.html" class="text-indigo-600 hover:underline font-semibold focus:ring-2 focus:ring-indigo-500 focus:outline-none">Ver Prontuário</a>
+                                    <button class="text-blue-600 hover:underline font-semibold focus:ring-2 focus:ring-blue-500 focus:outline-none" aria-label="Editar Carlos Andrade">Editar</button>
+                                    <button class="text-green-600 hover:underline font-semibold focus:ring-2 focus:ring-green-500 focus:outline-none" aria-label="Ativar Carlos Andrade">Ativar</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </main>
+
+            <!-- Footer -->
+            <footer class="mt-6 text-center text-xs text-gray-500 p-4">
+                Projeto acadêmico da disciplina de Engenharia de Requisitos – PUC Goiás
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar Paciente -->
+    <div id="add-patient-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-30">
+        <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-semibold text-gray-800">Adicionar Novo Paciente</h3>
+                <button id="close-add-patient-modal" class="text-gray-500 hover:text-gray-800 text-2xl focus:ring-2 focus:ring-gray-500 focus:outline-none" aria-label="Fechar modal">&times;</button>
+            </div>
+            <form id="add-patient-form" class="space-y-4">
+                <div>
+                    <label for="nome" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" required aria-required="true"
+                           class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                    <input type="email" id="email" name="email" required aria-required="true"
+                           class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                </div>
+                <div>
+                    <label for="cpf" class="block text-sm font-medium text-gray-700">CPF</label>
+                    <input type="text" id="cpf" name="cpf" required aria-required="true" placeholder="000.000.000-00"
+                           class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                </div>
+                <div>
+                    <label for="telefone" class="block text-sm font-medium text-gray-700">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" required aria-required="true" placeholder="(00) 00000-0000"
+                           class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                </div>
+                <div>
+                    <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+                    <select id="status" name="status" required aria-required="true"
+                            class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all">
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+                <p id="form-error" class="text-red-600 text-sm hidden" role="alert">Por favor, verifique os dados inseridos.</p>
+                <div class="flex justify-end gap-4 pt-4">
+                    <button type="button" id="cancel-add-patient-btn" class="bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 focus:ring-2 focus:ring-gray-500 focus:outline-none">Cancelar</button>
+                    <button type="submit" class="bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:outline-none">Salvar</button>
+                </div>
+            </form>
         </div>
     </div>
 
     <script>
+        // Dropdown do Perfil
         const profileButton = document.getElementById('profile-button');
         const profileDropdown = document.getElementById('profile-dropdown');
         if (profileButton) {
-            profileButton.addEventListener('click', () => {
+            profileButton.addEventListener('click', (e) => {
+                e.stopPropagation();
                 profileDropdown.classList.toggle('hidden');
             });
-            document.addEventListener('click', (event) => {
-                if (!profileButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+            document.addEventListener('click', (e) => {
+                if (!profileButton.contains(e.target) && !profileDropdown.contains(e.target)) {
                     profileDropdown.classList.add('hidden');
                 }
+            });
+        }
+
+        // Modal para Adicionar Paciente
+        const openAddPatientModal = document.getElementById('open-add-patient-modal');
+        const closeAddPatientModal = document.getElementById('close-add-patient-modal');
+        const cancelAddPatientBtn = document.getElementById('cancel-add-patient-btn');
+        const addPatientModal = document.getElementById('add-patient-modal');
+        const addPatientForm = document.getElementById('add-patient-form');
+        const formError = document.getElementById('form-error');
+
+        if (addPatientModal) {
+            openAddPatientModal.addEventListener('click', () => addPatientModal.classList.remove('hidden'));
+            closeAddPatientModal.addEventListener('click', () => addPatientModal.classList.add('hidden'));
+            cancelAddPatientBtn.addEventListener('click', () => addPatientModal.classList.add('hidden'));
+
+            addPatientForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const cpf = document.getElementById('cpf').value;
+                // Validação simulada de CPF (exemplo simples)
+                if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf)) {
+                    formError.classList.remove('hidden');
+                    document.getElementById('cpf').focus();
+                    return;
+                }
+                // Simula sucesso
+                addPatientModal.classList.add('hidden');
+                formError.classList.add('hidden');
+                addPatientForm.reset();
+                alert('Paciente adicionado com sucesso!'); // Substituir por notificação visual em produção
+            });
+        }
+
+        // Busca de Pacientes (Simulada)
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const value = e.target.value.toLowerCase();
+                const rows = document.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    const name = row.querySelector('p.font-semibold').textContent.toLowerCase();
+                    const email = row.querySelector('p.text-sm').textContent.toLowerCase();
+                    row.style.display = (name.includes(value) || email.includes(value)) ? '' : 'none';
+                });
             });
         }
     </script>
